@@ -11,3 +11,7 @@
 2. Unbalanced : 특정 client가 다른 client에 비해 더 많은 비중을 차지할 수 있다.
 3. Massively distributed : client별 데이터보다 client가 더 많을 수 있다.
 4. Limited Communication : 모바일 기기가 오프라인, 느려지거나, 과도하게 연결이 많이될 수 있다.
+
+- Goal : Using additional computation in order to decrease the number of rounds of communication needed to train a model.
+1. increased parallelism : computation 동일한 client를 늘려서, 전체 additional computation 증가로 할것인가?
+2. increased computation of each client : 개별 clinet의 computation 을 늘려서, 전체 additional computation 증가로 할것인가?
