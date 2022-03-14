@@ -15,3 +15,12 @@
 - Goal : Using additional computation in order to decrease the number of rounds of communication needed to train a model.
 1. increased parallelism : computation 동일한 client를 늘려서, 전체 additional computation 증가로 할것인가?
 2. increased computation of each client : 개별 clinet의 computation 을 늘려서, 전체 additional computation 증가로 할것인가?
+
+- Fed Avg's key parameters
+1. C : the fraction of clients that perform computation on each round ( ex. C = 0.1 , 0.2 ,  0.5 ... ) 
+2. E : Epoch
+3. B : local minibatch size ( for client updates ) 
+
+- Fed SGD vs Fed Avg
+1. Fed SGD : 전체 client가 모두 gradient를 구해서 서버의모델 업데이트 하는 것 ( B = ∞ , E = 1 ) 
+2. Fed Avg : 일부 client가 gradient 를 가중평균으로 모델 업데이트 하는 것. 
