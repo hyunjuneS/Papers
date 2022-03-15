@@ -47,6 +47,7 @@
 - Local Datasets의 epoch 가 많아지면, FedAvg 는 plateau ? diverge ? ( 정체되거나 갈라진다? ) , 여튼 안좋다
 - 수렴의 후반단계에서는 Decaying learning rate와 같이, local computation을 줄이는것이 좋다. (Batch size를 크게하거나 or Epoch를 줄이는것)
 - <img width="643" alt="스크린샷 2022-03-15 오전 11 21 12" src="https://user-images.githubusercontent.com/98244339/158293081-38861e6b-06c3-417f-a7e2-4a0a7a31b56d.png">
+- mnist cnn 에서는 E가 커짐에 따라 의미있는 변화가 없지만, language model 에서는 의미있는 변화가 있음 ( 아무래도 language model 은 non-iid가 자연스레 들어가있는것 때문이 아닐까..? ) 
 - ![IMG_1EAE24575F9A-1](https://user-images.githubusercontent.com/98244339/158294267-bf9639ee-de07-4490-b641-e298b4b4966d.jpeg)
 
 
