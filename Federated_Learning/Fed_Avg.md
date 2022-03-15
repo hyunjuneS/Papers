@@ -15,16 +15,38 @@
 ## Goal : Using additional computation in order to decrease the number of rounds of communication needed to train a model.
 - increased parallelism : computation 동일한 client를 늘려서, 전체 additional computation 증가로 할것인가?
 - increased computation of each client : 개별 clinet의 computation 을 늘려서, 전체 additional computation 증가로 할것인가?
+- 실제 사용할때는, client를 늘리는것에 큰 비용이 들지않아, 먼저 client를 늘려보고 계산량을 늘려본다. 
+
+## Fed SGD vs Fed Avg
+- Fed SGD : client를 얼마나 사용할지 batch size 를 결정함 (C), C가 1이면 모든 client가 minibatch로 ( B = ∞ , E = 1 ) 
+- Fed Avg : 일부 client가 gradient 를 가중평균으로 모델 업데이트 하는 것. 
 
 ## Fed Avg's key parameters
 - C : the fraction of clients that perform computation on each round ( ex. C = 0.1 , 0.2 ,  0.5 ... ) 
 - E : Epoch
 - B : local minibatch size ( for client updates ) 
 
-## Fed SGD vs Fed Avg
-- Fed SGD : 전체 client가 모두 gradient를 구해서 서버의모델 업데이트 하는 것 ( B = ∞ , E = 1 ) 
-- Fed Avg : 일부 client가 gradient 를 가중평균으로 모델 업데이트 하는 것. 
-
 ## Weight Initialization 
 - 모델 w , w' 의 가중치를 동일하게 초기화시켜주어야 효과가 좋다.
 - <img width="332" alt="스크린샷 2022-03-14 오후 6 23 09" src="https://user-images.githubusercontent.com/98244339/158142908-013f5033-0003-40a6-a599-b0ebf7863618.png">
+
+## Algorithm
+- <img width="757" alt="스크린샷 2022-03-15 오전 9 03 16" src="https://user-images.githubusercontent.com/98244339/158280397-a23a2abb-ba1b-44a3-ab07-a0f59df5a354.png">
+
+## Effect of increased parallelism ( Controls the amount of multi-client parallelism )
+- <img width="770" alt="스크린샷 2022-03-15 오전 9 11 56" src="https://user-images.githubusercontent.com/98244339/158281167-9753f85d-2385-4bb8-a702-c923243ed39e.png">
+
+## Increasing computation per client ( u : round & client 당 업데이트 횟수 )
+- <img width="601" alt="스크린샷 2022-03-15 오전 10 22 38" src="https://user-images.githubusercontent.com/98244339/158287452-f6c44d6d-1f6e-421c-985c-019accb5f4cc.png">
+
+## Regularization benefit
+- communication rounds 를 줄이는것 뿐만아니라, Dropout의 효과로도 Fed Avg는 training loss도 줄인다.
+- <img width="558" alt="스크린샷 2022-03-15 오전 11 03 07" src="https://user-images.githubusercontent.com/98244339/158291235-53494108-303c-4497-9681-aa2ba89ebc80.png">
+
+## Local Datasets Epoch & TrainLoss
+- Local Datasets의 epoch 가 많아지면, FedAvg 는 plateau ? diverge ? ( 정체되거나 갈라진다? ) , 여튼 안좋다
+- 수렴의 후반단계에서는 Decaying learning rate와 같이, local computation을 줄이는것이 좋다. (Batch size를 크게하거나 or Epoch를 줄이는것)
+- <img width="643" alt="스크린샷 2022-03-15 오전 11 21 12" src="https://user-images.githubusercontent.com/98244339/158293081-38861e6b-06c3-417f-a7e2-4a0a7a31b56d.png">
+- ![IMG_1EAE24575F9A-1](https://user-images.githubusercontent.com/98244339/158294267-bf9639ee-de07-4490-b641-e298b4b4966d.jpeg)
+
+
