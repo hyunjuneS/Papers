@@ -40,6 +40,7 @@
 - <img width="757" alt="스크린샷 2022-03-15 오전 9 03 16" src="https://user-images.githubusercontent.com/98244339/158280397-a23a2abb-ba1b-44a3-ab07-a0f59df5a354.png">
 
 ## Effect of increased parallelism ( Controls the amount of multi-client parallelism )
+- c 에 따라서 client 숫자 변경, client 10 이상으로는 크게 변동없어 이후 실험에서는 C = 0.1. 고정
 - <img width="770" alt="스크린샷 2022-03-15 오전 9 11 56" src="https://user-images.githubusercontent.com/98244339/158281167-9753f85d-2385-4bb8-a702-c923243ed39e.png">
 
 ## Increasing computation per client ( u : round & client 당 업데이트 횟수 )
