@@ -18,8 +18,15 @@
 - 실제 사용할때는, client를 늘리는것에 큰 비용이 들지않아, 먼저 client를 늘려보고 계산량을 늘려본다. 
 
 ## Fed SGD vs Fed Avg
-- Fed SGD : client를 얼마나 사용할지 batch size 를 결정함 (C), C가 1이면 모든 client가 minibatch로 ( B = ∞ , E = 1 ) 
-- Fed Avg : 일부 client가 gradient 를 가중평균으로 모델 업데이트 하는 것. 
+- Fed SGD ( parameter : C ) <br/>
+: 임의 선택된 client, client 별 모든 데이터 가 batch로 계산되어( batch = ∞) , 1번 계산하여 1번 업데이트 ( epoch = 1 ) <br/>
+<br/>
+- Fed Avg ( parameter : C , B , E ) <br/>
+- 임의 선택된 client, client 별 batch 크기 선정( batch 선정 ) , n 번 계산하여 1번 업데이트 ( epoch 선정 ) <br/>
+<br/>
+- if B == ∞  and E ==1 : <br/>
+           Fed SGD = Fed Avg
+
 
 ## Fed Avg's key parameters
 - C : the fraction of clients that perform computation on each round ( ex. C = 0.1 , 0.2 ,  0.5 ... ) 
