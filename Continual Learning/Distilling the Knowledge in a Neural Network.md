@@ -15,5 +15,5 @@
 - <img width="308" alt="스크린샷 2022-03-21 오전 11 27 39" src="https://user-images.githubusercontent.com/98244339/159197937-982eecd7-6b12-49cf-b09c-f81007dc88c9.png">
 
 ## Two Objective Function ( 두 목적함수의 가중평균을 사용하는것이 좋은것을 밝혔다고 한다. )
-- First Objective Function : Soft Target 과의 Cross Entropy 사용 ( 단, cumbersome model 에서 만든 동일한 T 사용 )
-- Second Objective Function : Correct Lable 과 Cross Entropy 사용
+- First Objective Function : Soft Target 과의 Cross Entropy 사용 ( 단, cumbersome model 에서 만든 동일한 T 사용 , T ↑)
+- Second Objective Function : Correct Lable 과 Cross Entropy 사용 ( T == 1 )
