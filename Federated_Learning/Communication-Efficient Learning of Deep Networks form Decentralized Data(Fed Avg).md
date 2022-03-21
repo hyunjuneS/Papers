@@ -1,6 +1,9 @@
 # 논문명 : Communication-Efecet Learning of Deep Networks from Decentralized Data
 
+## KEY IDEA : Fed Avg
+## Fed SGD 에서 client 별로 Epoch & mini-batch 할당하자!
 ## Fed Avg : combines local SGD on each client with a server that performs model averaging.
+
 ## Federated Learning 특징
 - 실제상황의 real-data를 학습하는것이 보편적으로 공개된 data를 학습하는것보다 나음 
 - 모델 학습을 위해 데이터센터에 기록하지 않는것이 좋음
