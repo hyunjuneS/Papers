@@ -24,10 +24,18 @@
 - Bidirectinal RNN 을 사용하여 annotation Sequence를 만든다.
 - BiRNN 은 최근단어가 focus 되도록 정방향,역방향 으로 hidden state를 계산한다.
 - 따라서, 각 단어별 annotation 은 정방향 h, 역방향 h의 결합으로 표현된다.
-- 즉, 각 단어별 annotation 은 뒷단어와 앞단어 모두의 정보를 가지고 있다. ( 즉 각단어의 context vector 는 앞뒤의 정보를 가지고있다.)
+- 즉, 각 단어별 annotation 은 뒷단어와 앞단어 모든 정보를 가지고 있다. (각단어의 context vector 는 앞뒤의 정보를 가지고있다.)
 - <img width="309" alt="스크린샷 2022-03-24 오전 10 02 24" src="https://user-images.githubusercontent.com/98244339/159821412-e32d7166-2397-425d-abfe-749584cae98b.png">
 
 
-
 ## Decoder
-- 
+- Key : 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한다.
+- 각 단어별, annotation sequence에 weight를 곱한것의 가중합으로 context vector 를 구한다.
+- weight는 alingm 
+- 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한w
+- 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한다.ㅁ
+- 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한다.
+- <img width="465" alt="스크린샷 2022-03-24 오전 10 11 36" src="https://user-images.githubusercontent.com/98244339/159822228-8388a19c-cf30-414c-8052-6c203aac37f5.png">
+
+
+
