@@ -29,13 +29,18 @@
 
 
 ## Decoder
-- Key : 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한다.
-- 각 단어별, annotation sequence에 weight를 곱한것의 가중합으로 context vector 를 구한다.
-- weight는 alingm 
-- 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한w
-- 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한다.ㅁ
-- 기존의 하나의 context vector를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence 에 기반한 각기다른 context vector 를 사용한다.
+- Key : 기존의 하나의 context vector(c)를 사용하는것이 아닌, Encoder 에서 구현한 annotation sequence(h) 에 기반한 각기다른 context vector(c) 를 사용한다. ( hidden state : s , 이전단어 y )
 - <img width="465" alt="스크린샷 2022-03-24 오전 10 11 36" src="https://user-images.githubusercontent.com/98244339/159822228-8388a19c-cf30-414c-8052-6c203aac37f5.png">
+
+- 각 단어별, annotation sequence(h)에 weight(a)를 곱한것의 합으로 context vector 를 구한다.
+- <img width="232" alt="스크린샷 2022-03-24 오전 10 16 51" src="https://user-images.githubusercontent.com/98244339/159822713-37b8e161-1367-4432-a1bb-38a7ea0191c5.png">
+- 여기서 weigth(a)는 align model ( e, input j 번째와 output i 번째가 얼마나 연관성이 있는지 )에 의해 계산된다.
+- align model 은 이전 hidden state(s) 와 j번째 annotation 의 작은 neural network로, 같이 학습된다.(soft alignment)
+- <img width="338" alt="스크린샷 2022-03-24 오전 10 16 58" src="https://user-images.githubusercontent.com/98244339/159823221-fdb77e04-a2e7-47b5-af93-b0b3ee89a500.png">
+
+- 전체 Decoder의 그림은 아래와 같다.
+- <img width="397" alt="스크린샷 2022-03-24 오전 10 17 06" src="https://user-images.githubusercontent.com/98244339/159823245-db67fc5d-d561-4bda-90ba-bead3aa7c236.png">
+
 
 
 
