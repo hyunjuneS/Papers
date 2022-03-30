@@ -1,13 +1,12 @@
 ## 논문명 : Neural Machine Translation by jointly Learning to Align and Translate
 
-## Key Idea : Align ( 문장에서 어디에 집중해야되어 번역을 해야되는지 ) 하고, Translate ( 단어 예측 )
-
-- Input Sentence를 고정된 context vector 로 Encoding 하는것이 아닌, 각 단어별 context vector를 만들고, decoding 할때 필요한 context vector를 선정한다.
-
+## Key Idea : Align(문장에서 어디에 집중해야되어 번역을 해야되는지)과 Translate(단어 예측)를 같이 학습하자.
+- 모델은 각 단어를 translation 할때, input sentence에서 어디와 가장 관련있는지 찾는다.(Align)
+- 어디와 가장 관련있는지 정보와, 지금까지 번역한 단어를 바탕으로 context vecotr를 만들고 다음 단어를 예측한다.(Translation)
 
 # RNN Encoder - Decoder
 ## Encoder 
-- 입력 문장(벡터 x)을 hidden state(h)로 만든후, nonlinear function(q) 사용하여 context vector(c)로 만든다. 
+- 입력 문장(벡터 x)로 부터 hidden state(h)로 만든후, nonlinear function(q) 사용하여 context vector(c)로 만든다. 
 - <img width="343" alt="스크린샷 2022-03-24 오전 9 42 50" src="https://user-images.githubusercontent.com/98244339/159819565-5f6bcc42-4742-4d13-bc91-ba11d9af314c.png">
 
 ## Decoder
@@ -39,6 +38,9 @@
 
 - 전체 Decoder의 그림은 아래와 같다.
 - <img width="397" alt="스크린샷 2022-03-24 오전 10 17 06" src="https://user-images.githubusercontent.com/98244339/159823245-db67fc5d-d561-4bda-90ba-bead3aa7c236.png">
+
+- Align model 을 시각화한것
+<img width="714" alt="스크린샷 2022-03-31 오전 8 43 17" src="https://user-images.githubusercontent.com/98244339/160948511-97c510e4-f6c7-4c33-ab47-1d74889e6c66.png">
 
 
 # Result
