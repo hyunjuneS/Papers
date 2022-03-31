@@ -1,7 +1,6 @@
 ## 논문명 : Attention is all you need
 
 ## Key idea : RNN 구조를 사용하지 않고, Neural Machine translation ~~ 에서 제시한 Attention 개념만 사용한 transformer제안한다.
-<img width="714" alt="스크린샷 2022-03-31 오전 8 43 17" src="https://user-images.githubusercontent.com/98244339/160949936-8ae42288-d9ea-41d4-90f1-437b8826ce0f.png">
 
 - Self attention : query , key 가 같은 문장안에서 나오는상황 , 즉 해당문장에 어떠한 단어가 다른 단어와 어떤 연관이 있나 . 즉 자기문장안에 단어별로 어떠한 연관성이 잇는지를 파악하는것 
 
