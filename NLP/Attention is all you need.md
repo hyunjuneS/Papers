@@ -11,5 +11,9 @@
 <img width="419" alt="스크린샷 2022-03-31 오전 9 12 58" src="https://user-images.githubusercontent.com/98244339/160951076-8cd39ac2-61a5-42bd-891d-8ea076c99057.png">
 - 주로 사용하는 attention mechanism 에는 dot-product attention과 additive attention이 있는데, 이론적으로는 동일하고, scale되는 것만 다르다. 
 - scale로 root(dk)를 나누는 이유는 softmax함수의 경우 값이 커지거나 작아지면 gradient 가 너무작아져서 scale 해줌
+- Multi Head Attention 의 경우, scaled dot prodcut attention 을 h번만큼 사용한 것.
 
-- Multi Head Attention 의 경우, scaled dot prodcut attention 을 h번만큼 사용한 것. 
+
+## Result
+<img width="631" alt="스크린샷 2022-03-31 오전 10 20 59" src="https://user-images.githubusercontent.com/98244339/160957277-dabd4d88-de65-4c68-9137-a26f54fb2b8d.png">
+<img width="654" alt="스크린샷 2022-03-31 오전 10 21 08" src="https://user-images.githubusercontent.com/98244339/160957294-2be5a7ee-57af-47d6-92f9-1d716c67db88.png">
