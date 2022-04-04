@@ -26,7 +26,7 @@
 - ![image](https://user-images.githubusercontent.com/98244339/161491404-ef804a66-9c91-46dd-8b80-e91807b4dc88.png)
 - ![image](https://user-images.githubusercontent.com/98244339/161491462-ce14e33d-8993-4ea0-bee5-3d875201adce.png)
 
-## Result
+## Experiment Total Result
 - new task 에서 다른 모델에 비해 전반적으로 우수하다.
 - old task 에서도 fine-tuning보다 우수하고, 종종 다른 모델에 비해서는 떨어진다.
 - 종합적으로 살펴보면 람다가 조정되면 아래 그래프와 같이 LWF의 성능이 우수하다.
@@ -36,6 +36,32 @@
 ![image](https://user-images.githubusercontent.com/98244339/161502680-898da315-4c0a-4ee8-972f-4f3bf53fb02e.png)
 ![image](https://user-images.githubusercontent.com/98244339/161502607-e918cb1a-fd53-4156-ba3b-0e91720b2c68.png)
 ![image](https://user-images.githubusercontent.com/98244339/161502614-d38ce518-0d10-4961-835f-27a6d0ee19c3.png)
+
+
+## Experiment Other Result
+1. Multiple new task scenario
+- new task를 큰 class 별 part로 나누어서 순차적으로 학습한 결과
+- LWF 가 joint-training 을 제외하고는 거의 앞선결과를 냈다.
+![image](https://user-images.githubusercontent.com/98244339/161507559-8ee3d409-aff9-4d4f-94f6-20fd9b80d01f.png)
+
+
+2. Influence of dataset size
+- new task의 dataset size에 따른 performance를 평가
+- LWF가 Fine tuning에서 앞선 성능을 보여주었다.
+![image](https://user-images.githubusercontent.com/98244339/161507602-eb7143ba-2882-4e47-afa6-6367deb7ac8a.png)
+
+
+3. Choice of task-specific layers & Network expansion & Effect of lower lr & L2 soft-constrained weights
+- Choice of task-specific layers : taks-specific layers를 증가시키거나
+- Network expansion : 네트워크 마지막의 dimension 증가
+- Effect of lower lr : θs 의 learning rate 감소
+- L2 soft-constrained weights : weight 간 L2 loss term 추가
+와 같이 여러 실험을 해도, 성능에 큰 부족함이 없다. 
+
+- ![image](https://user-images.githubusercontent.com/98244339/161509970-40b3c157-3bb4-44dc-8c26-a41000a7333c.png)
+- ![image](https://user-images.githubusercontent.com/98244339/161510130-25c0b97c-5a23-4407-82af-3c192dc9b225.png)
+
+
 
 
 
