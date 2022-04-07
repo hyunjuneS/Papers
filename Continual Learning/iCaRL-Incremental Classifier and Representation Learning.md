@@ -21,5 +21,7 @@
 - class별 sigmoid를 사용하여 classification 하는것은 training 을 위한 용도로서, inference시에는 상단에 Nearest-mean-Examplars 사용
 - feature extraction part의 paramter : ![image](https://user-images.githubusercontent.com/98244339/162119950-706cd7a1-f25a-4f86-943f-dcdc3773158c.png)
 - sigmoid 이전의 마지막 weight vector : ![image](https://user-images.githubusercontent.com/98244339/162120815-e50074ef-e477-4c0d-8d9f-8d18c521e9af.png)
+- ![image](https://user-images.githubusercontent.com/98244339/162122921-d52ca5bc-2fd0-458e-836c-038281026c5e.png)
+
 
 
