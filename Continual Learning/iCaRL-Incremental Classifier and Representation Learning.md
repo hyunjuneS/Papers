@@ -17,9 +17,9 @@
 - X1~Xs-1 까지는 기존에 학습이 되었고 P1~Ps-1 까지의 examplar(각 n개)로 저장되어 있다. Xs ~ Xt 의 class를 새로 학습한다고 가정.
 - memory size는 K로 고정되어 있으며, 해당 모델이 가지고있을 수 있는 이미지는 총 K개 이다.
 - Xs ~ Xt 의 새로운 class와, 기존examplar 를 가지고 Representation(feature extraction)을 학습 ( UPDATE REPRESENTATION )
-- class의 갯수가 많아져서 기존에 n개씩 저장했다면, 총 t개의 class를 각 m개씩 저장해야됨 ( n > m )
-- 기존에 P1~Ps-1 까지의 examplar가 가지고있는 갯수 감소시키기 ( n -> m , REDUCE EXAMPLAR )
-- Xs ~ Xt 의 새로운 class의 examplar 생성 ( 각 m 개 )
+- class의 갯수가 많아져서 기존에 n개씩 저장했다면, examplar의 크기를 m개씩 으로 줄여야함 ( n > m )
+- 기존에 P1~Ps-1 까지의 examplar크기 감소시키기 ( n -> m , REDUCE EXAMPLAR )
+- Xs ~ Xt 의 새로운 class의 examplar 생성 ( 각 m 개 CONSTRUCT EXAMPLAR SET)
 ![image](https://user-images.githubusercontent.com/98244339/162118944-703508f3-453a-48a7-877b-9ef9b30dedfc.png)
 
 ## Training Architecture
@@ -33,7 +33,12 @@
 - ![image](https://user-images.githubusercontent.com/98244339/162133246-ef351620-1365-4dfa-9fa9-5c41dedb6592.png)
 
 ## 새로운 class의 examplar 생성 ( CONSTRUCT EXAMPLARSET )
+- 각 class를 대표할 수 있는 이미지 ![image](https://user-images.githubusercontent.com/98244339/162139214-49cff028-ba82-443c-b4f9-431f1019cee5.png) 중에서, 가장 작은 차이를 가진 이미지부터 앞부터 쌓아간다. 
+- examplar의 크기를 줄여야할때 뒤에서 부터 없애버리면 된다.
+
 ![image](https://user-images.githubusercontent.com/98244339/162135909-e096a2bd-e7eb-4ab9-89c6-27a2260e0ac7.png)
 
+## 기존 P1~Ps-1 까지의 examplar 갯수 감소 ( REDUCE EXAMPLAR SET )
+![image](https://user-images.githubusercontent.com/98244339/162139002-169a867a-d741-481a-9b4b-2310fc1e414f.png)
 
 
