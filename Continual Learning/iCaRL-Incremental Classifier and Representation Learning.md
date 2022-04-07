@@ -13,7 +13,7 @@
 ## Classification (by Nearest-mean-of-examplars)
 ![image](https://user-images.githubusercontent.com/98244339/162116920-2820e658-730f-405f-9515-40889dc05355.png)
 
-## 전체 Training 과정
+# 전체 Training 과정
 - X1 ~ Xs-1 까지는 기존에 학습이 되었고 P1~Ps-1 까지의 examplar(각 n개)로 저장되어 있다. Xs ~ Xt 의 class를 새로 학습한다고 가정.
 - memory size는 K로 고정되어 있으며, 해당 모델이 가지고있을 수 있는 이미지는 총 K개 이다.
 - Xs ~ Xt 의 새로운 class와, 기존examplar 를 가지고 Representation(feature extraction)을 학습 ( UPDATE REPRESENTATION )
@@ -41,4 +41,7 @@
 ## 기존 P1~Ps-1 까지의 examplar 갯수 감소 ( REDUCE EXAMPLAR SET )
 ![image](https://user-images.githubusercontent.com/98244339/162139002-169a867a-d741-481a-9b4b-2310fc1e414f.png)
 
+
+## Result
+![image](https://user-images.githubusercontent.com/98244339/162141608-12525525-dfb1-4281-a2b4-a14ce4e2734f.png)
 
