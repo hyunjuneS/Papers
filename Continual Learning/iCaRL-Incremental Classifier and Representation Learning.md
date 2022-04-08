@@ -45,3 +45,7 @@
 ## Result
 ![image](https://user-images.githubusercontent.com/98244339/162141608-12525525-dfb1-4281-a2b4-a14ce4e2734f.png)
 
+
+- iCaRL 은 class incremental 상황에서 골고루 판별하지만, examplar가 없는 LWF 는 나중에 본것을 조금더 잘 맞힌다.
+- feature extraction을 고정하냐 마느냐에 따라서, fixed representation 모델과 finetuning의 결과가 다르다.
+- <img width="766" alt="스크린샷 2022-04-08 오전 9 00 30" src="https://user-images.githubusercontent.com/98244339/162338083-f539c1f0-0bbf-48d4-b7f1-65f5def05365.png">
