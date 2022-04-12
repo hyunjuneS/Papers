@@ -39,9 +39,3 @@
 <img width="1151" alt="image" src="https://user-images.githubusercontent.com/98244339/162864548-b0a6f638-4d2b-4e44-a98c-1ebbea8441e5.png">
 
 
-
-
-
-<img width="1206" alt="image" src="https://user-images.githubusercontent.com/98244339/162864186-3e405676-4c07-4647-a994-07283e34dbee.png">
-
-
