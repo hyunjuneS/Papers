@@ -13,8 +13,17 @@
 - 오른쪽 그림은 80~100 마지막 학습한 클래스에 편향된 모습을 보여준다.
 - ![image](https://user-images.githubusercontent.com/98244339/165013186-2e2c02c5-453a-4c43-8658-9ac817190a62.png)
 
-## Main 
+## Main
+- 크게 Step1 과 Step2 로 나뉠 수 있음. Step1에서는 마지막 FC이전까지 Distillation loss(old 클래스 분류용) / CrossEntropy loss(new 클래스 분류용) 로 학습한다.
+- Step 2에서는 2parameter로 linear model을 학습한다.
+
+- Step1 에서는 exemplar와 new data에서 train 데이터 ( 실험적으로 9:1(train 9 , val 1) 이 좋다고함 )로 학습
+- Step2 에서는 exemplar와 new data에서 validation 데이터 로 학습/ Step2 단계에서 convoution과 FC 모두 freeze시키고 softmax crossentropy 사용하여 학습한다.
+
 ![image](https://user-images.githubusercontent.com/98244339/165014732-0959e5f0-8610-4fa6-b495-268778af136a.png)
 
+
+## Experiment
+![image](https://user-images.githubusercontent.com/98244339/165015772-4a152f7e-12b3-4450-97d3-c741b5986151.png)
 
 
