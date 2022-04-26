@@ -28,6 +28,14 @@
 - 따라서, 어차피 -1~1로 정규화 되어있으므로, feature extractor간 각도만 유지되도록 loss term을 만든다.
 - <img width="700" alt="image" src="https://user-images.githubusercontent.com/98244339/165195350-8e47263d-91a2-4bb6-8ef2-68a9337ca04d.png">
 
+## Problem3. Ambiguities --> Inter-class separation ( Lmr )
+- old class 와 new class 사이의 class embedding weight vecotor 가 겹치게 나오는것을 방지하기 위해, margin 개념을 사용하고 싶음.
+- margin 개념 : positive ( 긍정적으로 가까운것으로 판단되어 가깝게 배치 ) / negative ( 부정적으로 다른것으로 판단되어 멀리 배치 )
+- 즉, new class에서 old class를 분리하여 positive로 판단 / exemplar에대해 highest respone를 내면 negative 로 판단
+- ![image](https://user-images.githubusercontent.com/98244339/165197308-bb9e115c-0032-49f2-bf20-78136af4fc94.png)
+
+
+
 
 
 
