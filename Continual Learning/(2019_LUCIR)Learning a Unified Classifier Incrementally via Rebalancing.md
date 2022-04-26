@@ -31,8 +31,13 @@
 ## Problem3. Ambiguities --> Inter-class separation ( Lmr )
 - old class 와 new class 사이의 class embedding weight vecotor 가 겹치게 나오는것을 방지하기 위해, margin 개념을 사용하고 싶음.
 - margin 개념 : positive ( 긍정적으로 가까운것으로 판단되어 가깝게 배치 ) / negative ( 부정적으로 다른것으로 판단되어 멀리 배치 )
-- 즉, new class에서 old class를 분리하여 positive로 판단 / exemplar에대해 highest respone를 내면 negative 로 판단
-- ![image](https://user-images.githubusercontent.com/98244339/165197308-bb9e115c-0032-49f2-bf20-78136af4fc94.png)
+- 즉, new class에서 old class를 분리하여 positive로 판단 / exemplar에대해 highest respone를 내면 negative 로 판단)
+- <img width="700" alt="스크린샷 2022-04-26 오전 9 49 29" src="https://user-images.githubusercontent.com/98244339/165197416-31f730c6-2a61-4565-a351-e7df4afa2eff.png">
+
+## Experiment
+- <img width="700" alt="image" src="https://user-images.githubusercontent.com/98244339/165197517-ea3c051f-051e-48cf-9ea6-e0e3a7c34482.png">
+
+
 
 
 
