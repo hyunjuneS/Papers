@@ -15,7 +15,7 @@
 
 ## Main
 - 크게 Step1 과 Step2 로 나뉠 수 있음. Step1에서는 마지막 FC까지 Distillation loss(old 클래스 분류용) / CrossEntropy loss(new 클래스 분류용) 로 학습한다.
-- Step 2에서는 2parameter로 linear model을 학습한다.
+- Step 2에서는 2parameter로 linear model을 학습한다. ( feature extractor , last fc layer freeze )
 
 - Step1 에서는 exemplar와 new data에서 train 데이터 ( 실험적으로 9:1(train 9 , val 1) 이 좋다고함 )로 학습
 - Step2 에서는 exemplar와 new data에서 validation 데이터 로 학습/ Step2 단계에서 convoution과 FC 모두 freeze시키고 softmax crossentropy 사용하여 학습한다.
