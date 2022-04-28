@@ -4,7 +4,7 @@
 
 
 ## Main Structure
-<img width="700" alt="image" src="https://user-images.githubusercontent.com/98244339/165653255-762f51a6-2dd8-464c-84b6-873a102fd3ea.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/98244339/165653255-762f51a6-2dd8-464c-84b6-873a102fd3ea.png">
 
 - Step1 . exemplar 와 new class 데이터 합치기
 - Step2 . Train 과정으로, classification + distillation 합쳐서 loss 구성 ( old class는 distillation & classification / new class는 classification만 )
