@@ -14,7 +14,7 @@
 - ![image](https://user-images.githubusercontent.com/98244339/165013186-2e2c02c5-453a-4c43-8658-9ac817190a62.png)
 
 ## Main
-- 크게 Step1 과 Step2 로 나뉠 수 있음. Step1에서는 마지막 FC이전까지 Distillation loss(old 클래스 분류용) / CrossEntropy loss(new 클래스 분류용) 로 학습한다.
+- 크게 Step1 과 Step2 로 나뉠 수 있음. Step1에서는 마지막 FC까지 Distillation loss(old 클래스 분류용) / CrossEntropy loss(new 클래스 분류용) 로 학습한다.
 - Step 2에서는 2parameter로 linear model을 학습한다.
 
 - Step1 에서는 exemplar와 new data에서 train 데이터 ( 실험적으로 9:1(train 9 , val 1) 이 좋다고함 )로 학습
