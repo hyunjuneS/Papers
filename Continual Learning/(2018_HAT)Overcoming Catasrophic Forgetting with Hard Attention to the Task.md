@@ -17,13 +17,13 @@
 - 누적된 attention 을 expand / wlement-wise minimum / subtraction / multiplication
 - ![image](https://user-images.githubusercontent.com/98244339/167348933-d456472a-1719-4028-ac26-15c24646bd07.png)
 
-[ backward 의 positive scaling ]
+[ backward 의 positive scaling ]</br>
 - binary한 attention 을 얻기위해 unit-step-function 을 사용해야 하지만, embedding 된 e가 back-propagation 을 사용하므로, s(positive scaling) 를 곱한 sigmoid를 사용한다. 
 - s(positive scaling)는 trainnig과정에서 s를 점차 키우고, test에서는 s를 max로 둔다.
 - s를 점차 키우는 식은 아래와 같다.
 - ![image](https://user-images.githubusercontent.com/98244339/167350342-f99b6ccf-2424-4601-8722-da40bc29e511.png)
 
-[ backward 의 Embedding gradient Compensation]
+[ backward 의 Embedding gradient Compensation]</br>
 - positive scaling 으로 annealed sigmoid(상승시키며 sigmoid) 의 효과를 없애주고, 이전 분포의 magnitude를 변화시키기 위해 embedding gradient compensation 을 사용한다. 
 - ![image](https://user-images.githubusercontent.com/98244339/167351449-493fcca0-0532-4627-8e04-c7dfdd000355.png)
 
