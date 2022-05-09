@@ -24,7 +24,10 @@
 [ Algorithm : Network split and Duplication ] </br>
 - 이전 network 의 weight와, 새로운 network 의 weight가 차이를 적게하기 위해, L2 distance 사용
 - weight간 L2 Distacne 값이 threshold 보다 크다면, weight를 2개 copy 하여, 재학습
+- copy할때는 현재 task t에 대해서 기록해놓은 다음, inference 시에 참조하여 사용한다.
 ![image](https://user-images.githubusercontent.com/98244339/167333454-88e6db25-3a52-4308-adac-fda79aadf9aa.png)
+
+
 
 
 
