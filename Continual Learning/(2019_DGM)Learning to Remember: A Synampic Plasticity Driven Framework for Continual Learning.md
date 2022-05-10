@@ -10,6 +10,7 @@
 - GAN 을 학습시키는 동시에 Binary Mask도 같이 학습시킨다.
 - 이후 mask를 학습시키는 방법은 --> 2018_HAT 논문참조
 
-## 
+## Dynamic Network Expansion
+- training 과정에서 free parameter 가 없어지지 않도록 일정수준 이상되도록 유지
 
 
