@@ -31,3 +31,5 @@
 [ main structure ]</br>
 - ![image](https://user-images.githubusercontent.com/98244339/167347943-2d2fdbff-6187-4a37-9fef-b7caa0c7bc12.png)
 
+- 특정 task 에서 사용될 수 있도록 attention mask 에 sparsity를 부여하기 위해 regularization term 을 추가한다.
+- ![image](https://user-images.githubusercontent.com/98244339/167528897-5fe7f9d7-93ad-450f-a4f0-427a314c4745.png)
