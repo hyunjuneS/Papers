@@ -1,25 +1,26 @@
-## Key Idea : Exemplar 에서 semantic information(의미적으로 유사한 정보) & Unlabeled Data에서 semantic-irrelevant information(관련없지만 상상하고 탐험할 수 있는 정보)로 feautre generator 를 학습 시켜, feature extractor 중간에 넣는다. 
+## Key Idea : Exemplar 에서 semantic information(의미적으로 유사한 정보) & Unlabeled Data에서 semantic-irrelevant information(관련없지만 상상하고 탐험할 수 있는 정보)로 feautre generator 를 학습 시켜 이용하자
 
 ## Unlabeled data에서 imagine하는 motivation(a) & Method Picture
 ![image](https://user-images.githubusercontent.com/98244339/167744094-a1166c51-6427-4a2b-877c-188635fdd2a4.png)
 
 ## Introduction
 - 기존에 exemplar를 생성하고, 학습했던 데이터를 버리기 전에 feature generator(class별 각각 feature generator 소유)학습한다.
-- 새로운 task가 오면, feature generator를 freeze 하고, generator 에서 sample 생성. ( 단지, 이전에 학습했던 class를 잊지 않기 위해서, 학습할때만 사용 )
-- Inference할때는, featrue generator를 버리고, vanilla deep model만 필요하다.
+- 새로운 task가 오면, generator를 freeze 하고, generator 에서 feature 생성. ( generator는 이전에 학습했던 class를 잊지 않기 위해서, 학습할때만 사용 )
+- Inference할때는, generator를 버리고, vanilla deep model만 필요하다.
 [Learning Method]</br>
-1. Semantic Contrastive Learning(SC) : generated 된 sample들이 Original data와 의미적으로 유사하도록 학습
-2. Semantic-decoupling Contrastive Learning(SDC) : gemerated된 sample들과 Unlabled data간 ( generated된 smapled 이 다양하도록.. )
+1. Semantic Contrastive Learning(SC) : generated 된 feature들이 Original data feature와 의미적으로 유사하도록 학습 
+2. Semantic-decoupling Contrastive Learning(SDC) : gemerated된 feature들과 Unlabled data의 feature이 상상할 수 있도록 학습 ( generated된 smapled 이 다양하도록.. )</br>
+즉, 1(SC)을 통하여 의미적으로 유사하도록 & 2(SDC)를 통하여 상상하여 다양한 이미지 내도록
 
 ## Learning Framework
 - 기존 feature extractor를 f1,f2로 나누고 / feature generator를 f1,f2 사이에 넣는다.
-- new task를 학습할때는, generate는 freeze 되고 / exemplar의 다양한 counterparts(exemplar와 unlabeled data를 f1에 통과시키고 합친것)를 generate한다. 
+- new task를 학습할때는, generatos는 freeze 되고 / 다양한 counterparts(exemplar와 unlabeled data를 f1에 통과시키고 합친것)를 generate한다. 
 ![image](https://user-images.githubusercontent.com/98244339/167745786-e3b5d2c5-7bde-4e26-9346-e4a95256aaf0.png)
 
 ## Learning of Feature Generator
 ### Before Learning Method..
 - Exemplar와 Unlabeled data를 첫번째 feature map(f1)을 통과시키고 합친 후, feature generator(G_c) 통과시켜, feature map(h_mix) 생성한다.
-- feature generator는 2가지 특징 ( exemplar와 semantic information & exemplar-unlabeled data 간 augmenting )
+- feature generator는 2가지 특징 ( exemplar와 의미적으로 유사하도록 & Unlabeled data의 상상이 exemplar와 합쳐지도록 )
 
 - Exemplar : ![image](https://user-images.githubusercontent.com/98244339/167746820-8ac38923-7efc-4912-b8ff-f2993899d8b3.png)
 - Unlabeled data : ![image](https://user-images.githubusercontent.com/98244339/167746880-53a025a7-7cd0-49f5-8309-edfd3ddc334a.png)
@@ -27,24 +28,27 @@
 - ![image](https://user-images.githubusercontent.com/98244339/167747572-c1e86ce2-322f-45dd-bb84-e7f2f266d961.png)
 
 ### Semantic contrastive learning(SC)
-- h_mix(generated feature) 에서 semantic information을 도출하기 위해서, Global Average Pooling(GAP)수행
+- h_mix(generated feature) 에서 semantic information(의미정보)을 도출하기 위해서, Global Average Pooling(GAP)수행
 - ![image](https://user-images.githubusercontent.com/98244339/167747875-8cd1e8b4-86ba-43e6-a7ce-a175e4a39283.png)
-- h_mix(generated feature) 와 original data(bias가 생길 수 있는 exemplar대신 사용) 간 semantic information 이 적어지도록 학습 (SC)
+- h_mix(generated feature) 와 original data(bias가 생길 수 있는 exemplar대신 사용) 간 의미적으로 유사하도록 학습 (SC)
 - x_i^k 를 f1 통과시키고, GAP수행하여 v_i^k 생성
 - ![image](https://user-images.githubusercontent.com/98244339/167748238-850e172c-b24a-45fb-95e9-7da018a712cc.png)
 
 ### Semantic-Decoupling contrastive learning(SDC)
 - cf.] gram matrix 는 주로 feature map에서 semantic-irrelevant information 을 encode하는데 사용된다.</br>
-( 즉, feaure map의 channel간 관계가 encode됨) ( 8,12,23,24,31 번 논문 참조 )
+( 즉, feaure map의 channel간 관계가 encode됨) ( 8,12,23,24,31 번 논문 참조 ) </br>
 - Unlabeled data에서 상상하기 위해서 semantic-information은 분리하고, semantic-irreverent information 얻기위해 gram matrix 사용한다.
-- h_mix(generated fature) 와 unlabeled data간 channle간 관계가 적어지도록 학습(SDC)
+- h_mix(generated fature) 와 unlabeled data간 상상하여 다양한 이미지 내도록(channle간 관계가 적어지도록 학습) (SDC)
 - ![image](https://user-images.githubusercontent.com/98244339/167749419-7ab1d7a1-03b3-4d1e-b412-74bf34702a1b.png)
 - ![image](https://user-images.githubusercontent.com/98244339/167749459-925a250e-1463-4358-8dc0-ebddfa57bdc9.png)
 
 ### Cycle Constraint(CYC)
-- h_mix(generated feature) 생성이후, sementic-information을 generated-feature에서도 얻고자, h_mix를 feature-generator에 다시 넣는다.
+- generator의 성능을 일반화 시키기 위해, h_mix(generated feature)와 exemplar의 feautre를 다시 generator에 넣는다.
+- 이로써 generator는 exemplar 에서만 의미정보를 얻는것 이외에도, generated feature(생성된 feature)에서도 의미정보를 얻을 수 있다. 
 - ![image](https://user-images.githubusercontent.com/98244339/167752676-1599c199-0c6e-44d9-bb7e-81dbedfd8183.png)
-- generator의 성능을 일반화 시키기 위해, h_mix에서 semantic information을 추출하고, h_i^m 에서 semanti information 을 분리한다.
+
+1. 두번 generator통과된 것과(h_cyc), Unlabeled data 사이에 의미정보를 유사하도록 하는 loss 
+2. 두번 generator통과된 것과(h_cyc), ememplar 사이에 상상하여 다양한 이미지 낼수 있도록 하는 loss
 - ![image](https://user-images.githubusercontent.com/98244339/167752710-7e2370ea-e22b-4274-9150-a151c36a598c.png)
 
 ### Training objective of G
