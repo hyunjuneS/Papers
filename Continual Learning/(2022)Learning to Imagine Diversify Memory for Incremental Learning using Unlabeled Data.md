@@ -36,9 +36,9 @@
 
 ### Semantic-Decoupling contrastive learning(SDC)
 - cf.] gram matrix 는 주로 feature map에서 semantic-irrelevant information 을 encode하는데 사용된다.</br>
-( 즉, feaure map의 channel간 관계가 encode됨) ( 8,12,23,24,31 번 논문 참조 ) </br>
-- Unlabeled data에서 상상하기 위해서 semantic-information은 분리하고, semantic-irreverent information 얻기위해 gram matrix 사용한다.
-- h_mix(generated fature) 와 unlabeled data간 상상하여 다양한 이미지 내도록(channle간 관계가 적어지도록 학습) (SDC)
+( 즉, feaure map의 channel간 관계가 encode됨 ) ( 8,12,23,24,31 번 논문 참조 ) </br>
+- Unlabeled data에서 상상하여 다양한 이미지 얻기 위해서, semantic-irreverent information가 적어지도록 gram matrix 사용한다.
+- 즉, h_mix(generated fature) 와 unlabeled data간 상상하여 다양한 이미지 내도록(channle간 관계가 적어지도록 학습) (SDC)
 - ![image](https://user-images.githubusercontent.com/98244339/167749419-7ab1d7a1-03b3-4d1e-b412-74bf34702a1b.png)
 - ![image](https://user-images.githubusercontent.com/98244339/167749459-925a250e-1463-4358-8dc0-ebddfa57bdc9.png)
 
