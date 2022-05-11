@@ -26,7 +26,7 @@
 - ![image](https://user-images.githubusercontent.com/98244339/167350342-f99b6ccf-2424-4601-8722-da40bc29e511.png)
 
 [ backward 의 Embedding gradient Compensation]</br>
-- positive scaling 으로 annealed sigmoid(상승시키며 sigmoid) 의 효과를 없애주고, 이전 분포의 magnitude를 변화시키기 위해 embedding gradient compensation 을 사용한다. 
+- embedding gradient compensation은 annealed sigmoid(상승된 sigmoid)의 효과를 없애준다.
 - ![image](https://user-images.githubusercontent.com/98244339/167351449-493fcca0-0532-4627-8e04-c7dfdd000355.png)
 
 
