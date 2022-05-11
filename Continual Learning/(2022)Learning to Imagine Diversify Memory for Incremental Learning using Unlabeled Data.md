@@ -56,9 +56,9 @@
 ### 1. Learning new task (cross-entropy)
 ![image](https://user-images.githubusercontent.com/98244339/167754590-af181ff5-617d-44bf-8ad9-d446aba556c1.png)
 ### 2. exemplar 와 generated 된 feature를 통해 이전 task Learning ( cross-entropy )
-1. Exemplar Learning
+1. Exemplar Learning </br>
 ![image](https://user-images.githubusercontent.com/98244339/167754915-f40dd251-f09c-4a99-8151-435a5b68f627.png)
-2. generated feature learning 
+2. generated feature learning</br> 
 ![image](https://user-images.githubusercontent.com/98244339/167754932-9b351b27-8842-410c-8c52-92639724b679.png)
 
 ### 3. Distillation Loss는 앞선 논문에서 사용된 loss 그대로 사용
