@@ -16,13 +16,21 @@
 - new task를 학습할때는, generate는 freeze 되고 / exemplar의 다양한 counterparts(exemplar와 unlabeled data를 f1에 통과시키고 합친것)를 generate한다. 
 ![image](https://user-images.githubusercontent.com/98244339/167745786-e3b5d2c5-7bde-4e26-9346-e4a95256aaf0.png)
 
-
 ## Learning of Feature Generator
-[ Goal : Exemplar 와 Original Data 가 주어졌을때, class-specific feature generator 를 만드는것 ] </br>
+### Before Learning Method..
+- Exemplar와 Unlabeled data를 첫번째 feature map(f1)을 통과시키고 합친 후, feature generator(G_c) 통과시켜, feature map(h_mix) 생성한다.
+- feature generator는 2가지 특징 ( exemplar와 semantic information & exemplar-unlabeled data 간 augmenting )
 
-### Step1 </br>
 - Exemplar : ![image](https://user-images.githubusercontent.com/98244339/167746820-8ac38923-7efc-4912-b8ff-f2993899d8b3.png)
 - Unlabeled data : ![image](https://user-images.githubusercontent.com/98244339/167746880-53a025a7-7cd0-49f5-8309-edfd3ddc334a.png)
+- Original data : ![image](https://user-images.githubusercontent.com/98244339/167748500-42fda64b-d06f-439f-b15d-caf57eea6015.png)
+![image](https://user-images.githubusercontent.com/98244339/167747572-c1e86ce2-322f-45dd-bb84-e7f2f266d961.png)
 
+### Semantic contrastive learning
+- h_mix(generated feature) 에서 semantic information을 도출하기 위해서, Global Average Pooling(GAP)수행
+![image](https://user-images.githubusercontent.com/98244339/167747875-8cd1e8b4-86ba-43e6-a7ce-a175e4a39283.png)
+- h_mix(generated feature) 와 original data(bias가 생길 수 있는 exemplar대신 사용) 간 semantic information 이 적어지도록 학습 (SC)
+- x_i^k 를 f1 통과시키고, GAP수행하여 v_i^k 생성
+![image](https://user-images.githubusercontent.com/98244339/167748238-850e172c-b24a-45fb-95e9-7da018a712cc.png)
 
 
