@@ -54,7 +54,7 @@
 ### Training objective of G
 ![image](https://user-images.githubusercontent.com/98244339/167753508-fd55338e-36e1-43a4-b69f-e973595719a3.png)
 
-## Anti-forgetting Learning loss( generatore freeze후 new task Training )
+## Anti-forgetting Learning loss( generator freeze후 new task Training )
 ![image](https://user-images.githubusercontent.com/98244339/167755052-e8fa3233-11e1-42d3-8907-998c82d28e36.png)
 
 ### 1. Learning new task (cross-entropy)
