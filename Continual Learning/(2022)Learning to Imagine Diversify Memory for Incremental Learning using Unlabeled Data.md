@@ -12,9 +12,17 @@
 2. Semantic-decoupling Contrastive Learning(SDC) : gemerated된 sample들과 Unlabled data간 ( generated된 smapled 이 다양하도록.. )
 
 ## Learning Framework
-- 
+- 기존 feature extractor를 f1,f2로 나누고 / feature generator를 f1,f2 사이에 넣는다.
+- new task를 학습할때는, generate는 freeze 되고 / exemplar의 다양한 counterparts(exemplar와 unlabeled data를 f1에 통과시키고 합친것)를 generate한다. 
 ![image](https://user-images.githubusercontent.com/98244339/167745786-e3b5d2c5-7bde-4e26-9346-e4a95256aaf0.png)
 
+
+## Learning of Feature Generator
+[ Goal : Exemplar 와 Original Data 가 주어졌을때, class-specific feature generator 를 만드는것 ] </br>
+
+### Step1 </br>
+- Exemplar : ![image](https://user-images.githubusercontent.com/98244339/167746820-8ac38923-7efc-4912-b8ff-f2993899d8b3.png)
+- Unlabeled data : ![image](https://user-images.githubusercontent.com/98244339/167746880-53a025a7-7cd0-49f5-8309-edfd3ddc334a.png)
 
 
 
