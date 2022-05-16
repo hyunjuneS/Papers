@@ -27,8 +27,35 @@
 - 각 patch 의 parameter를 ![image](https://user-images.githubusercontent.com/98244339/168508851-5d4fe728-5739-4697-b40f-c28efa2d8c45.png) 로 표시
 - 각 patch를 global shared parameter(device에서 freeze & cloud에서 Learning) 와 tunable parameter(metapatch parameter)로 분리가능하다. </br>
 ![image](https://user-images.githubusercontent.com/98244339/168509130-cd265332-36e3-476b-bcfd-b5081f2e84db.png)</br>
-- 분리후, metapatch parameter 를 cross-entropy loss를 통해 학습한다.</br>
+- 분리후, metapatch parameter 를 cross-entropy loss를 통해 학습한다.
+- global shared parameter 의 학습과정은 MoMoDistill 에서 설명한다.</br>
 ![image](https://user-images.githubusercontent.com/98244339/168509647-5fab6385-ab3d-492f-aabd-aa2958581a91.png)</br>
-![image](https://user-images.githubusercontent.com/98244339/168509997-8e2fd154-b2ce-481e-8fd9-43f7d03081f7.png)
+![image](https://user-images.githubusercontent.com/98244339/168509997-8e2fd154-b2ce-481e-8fd9-43f7d03081f7.png)</br>
+
+
+### MoMoDistill to Enhance the Cloud Modeling
+- 기존에는 "model-over-data" 형식으로, device에 새로운 training data가 수집될때, 이전 model에 incremental learing 하는 방식.</br>
+- W_f는 cloud netwrok parameter로, device modeling 과는 독립적이다. 기존식은 아래와 같다.
+![image](https://user-images.githubusercontent.com/98244339/168510527-7ecc4001-e311-4ee5-ad33-dcbafb359832.png)
+
+- 하지만, local 데이터를 학습할때, device에서 개인화를 하는것이 cloud에서의 학습보다 좋을 것이다.
+- 이에(device model 의 가이드가 cloud modling 에 의미있는 도움을 줄것) 기반하여, "model-over-model" 방식을 제안한다.
+- "model-over-model"방식은 [data를 통한 학습 & device model에서 기존지식 합성]을 동시에 진행한다. 
+- 따라서, 모든 device model 에서 distillation loss가 추가된 term 사용한다.
+![image](https://user-images.githubusercontent.com/98244339/168516345-77e53c6d-0e48-4c86-90a3-90c6d269b918.png)
+
+![image](https://user-images.githubusercontent.com/98244339/168524053-c048e791-6bc0-428d-aeca-6cb98f952f7e.png)
+
+### Global Shared Parameter Learning
+- 앞선 Global Shared parameter 를 학습하는 과정에서, 상단 W_f 와 의미적으로 달라 local optimal 에 빠지게되어, 두단계로 나누어 진행한다.
+- step1에서는 상단W_f를 optimization 하고, step2에서 학습된 cloud model(f)를 가지고 Global shared parameter 를 distill한다.
+- cold-start issue 와 모든 device에서 metapatch의 이질적인 특성을 고려하여 보조 인코더를 사용한다.
+- 보조 인코더는 기존 데이터 & device 별 user profile feature(eg age,gender .. ) & metapatch 를 조합하여 정의한다.
+- 기존 metapatch parameter 대신 보조 인코더를 사용하여 패치를 정의하고, 첫단계에서 학습한 cloud 모델과 결합하여 proxy device model f(hat) 만든다. 
+- 보조 인코더와 global shared parameter 에 대해 디바이스에서, f(hat) 과 실제 device model f 간 knowledge distill 수행.
+![image](https://user-images.githubusercontent.com/98244339/168522457-55a132b9-5dc6-45a7-b5bc-205b9a7c4234.png)
+
+
+
 
 
