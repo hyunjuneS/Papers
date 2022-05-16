@@ -25,5 +25,10 @@
 - 하지만, 여러 patch들이 상대적으로 커서 sparse한 local-data에 fit되지 않아, MetaPatch 방법론을 적용한다.
 - MetaPatch는 metaLearning의 일환으로, 학습될 parameter를 줄이기위해 global paramter를 공유하는것이다. 
 - 각 patch 의 parameter를 ![image](https://user-images.githubusercontent.com/98244339/168508851-5d4fe728-5739-4697-b40f-c28efa2d8c45.png) 로 표시
+- 각 patch를 global shared parameter(device에서 freeze & cloud에서 Learning) 와 tunable parameter(metapatch parameter)로 분리가능하다. </br>
+![image](https://user-images.githubusercontent.com/98244339/168509130-cd265332-36e3-476b-bcfd-b5081f2e84db.png)</br>
+- 분리후, metapatch parameter 를 cross-entropy loss를 통해 학습한다.</br>
+![image](https://user-images.githubusercontent.com/98244339/168509647-5fab6385-ab3d-492f-aabd-aa2958581a91.png)</br>
+![image](https://user-images.githubusercontent.com/98244339/168509997-8e2fd154-b2ce-481e-8fd9-43f7d03081f7.png)
 
 
