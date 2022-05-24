@@ -32,11 +32,22 @@
 
 
 ### Mitigating catastrophic forgetting of the Unlabeled data ( B )
-- Unlabeled data의 지식을 보존하기 위해서 두가지 전략 사용 ( online semi-supervised generative replay & stabilization of discrimination consistency )
+- 다음 batch를 학습할때, Unlabeled data의 지식을 보존하기 위해서 추가적으로 두가지 전략 사용 
+- 1. online semi-supervised generative replay 
+- 2. stabilization of discrimination consistency
 
 ##### Online semi-supervised generatvie replay
-- 실시간으로 
+- 실시간으로 Generator 에서 데이터 생성하고 Classifier 에 재생시킨다.
+- Classifier(C) term에, [ online generator 에서 생성된 data를 활용한 term ] 을 추가하여 만든다.
+- [ online generator 에서 생성된 data를 활용한 term ] 은 기존 Classifier(C) 의 supervised-loss & unsupervised-loss와 같은 방식이다. </br>
+![image](https://user-images.githubusercontent.com/98244339/169961539-f461bc54-0426-4c16-8062-1955231f5187.png)</br>
+![image](https://user-images.githubusercontent.com/98244339/169961576-f28fb3f6-57bd-421e-bf39-c1cc7a7c59a3.png)</br>
 
+
+##### stabilization of discrimination consistency
+- 이전 Discriminator를 유지하기 위해서 regularization term이 추가된 Discriminator term 사용
+![image](https://user-images.githubusercontent.com/98244339/169962696-435e0744-5eea-4e45-8de2-b3df9bfe08be.png)</br>
+![image](https://user-images.githubusercontent.com/98244339/169962727-f0e9e53f-cba0-478d-8778-b253365dd398.png)</br>
 
 
 
