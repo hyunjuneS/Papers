@@ -12,6 +12,9 @@
 
 ## Method
 - A 단계를 통해 i-batch 에서 학습하고, i+1 batch 학습할때, Unlabeled information 을 잃지 않기위해 B단계 진행 
+### Main Structure
+![image](https://user-images.githubusercontent.com/98244339/169963854-e1c9cd8c-1335-41f7-babb-6149d889854f.png)
+
 ### Classifier & Discriminator & Generator Training on the Incremental Semi-supervised data ( A )
 ##### Classifier(C)
 - Classifier 역할 : Classification & Generate pseudo-label for GAN(D,G) </br>
