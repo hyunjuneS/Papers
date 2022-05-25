@@ -1,7 +1,7 @@
-## Key Idea : Partially Labeled data 사용하여, GAN & Classifier 동시 학습하는 deep Online Replay with Discriminator Consistency (ORDisCo) framework를 Semi-supervised Continual Learning 분야에 제안
-### ORDisCo 를 위한 2가지 방법론
-1. GAN에서 생성된 데이터가 실시간으로 Classifier에 들어간다.
-2. Unlabeled data의 정보를 잃지 않기위해, Discriminator 를 안정화한다.
+### Semi-supervised continual learning(SSCL) 제안
+### Semi-supervised classifier & Conditional GAN 함께 학습 = ORDisCo
+### Additional Proposal 1 : Conditional GAN 에서 generated 된 sample을 Oneline으로 Classifier에 replay
+### Additional Proposal 2 : Discriminator 가 Unalbeled information 잊지않기 위해 재학습
 
 ## 서론
 #### 기존에 Few-Shot Continual Learning & Unsupervised Continual Learning과는 다르게, new-class만 학습하는 것이아닌, new-class 학습과 old-class 를 위한 instance도 같이 학습한다.
