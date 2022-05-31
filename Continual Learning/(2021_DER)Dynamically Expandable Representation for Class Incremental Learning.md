@@ -15,5 +15,7 @@
 
 ### Sparsity Loss (L_s)
 - HAT개념을 사용하여, mask를 sigmoid & learnable parameter & scaling 으로 </br>
-![image](https://user-images.githubusercontent.com/98244339/171102898-5232d10f-636a-4c88-ab71-798440a6a27c.png)
+![image](https://user-images.githubusercontent.com/98244339/171102898-5232d10f-636a-4c88-ab71-798440a6a27c.png)</br>
+![image](https://user-images.githubusercontent.com/98244339/171103017-fc492821-4da0-44c2-a03b-fd2b59a3c713.png)</br>
+![image](https://user-images.githubusercontent.com/98244339/171103027-badef2bb-a5e6-4525-af92-ef4dfa41ffd7.png)</br>
 
