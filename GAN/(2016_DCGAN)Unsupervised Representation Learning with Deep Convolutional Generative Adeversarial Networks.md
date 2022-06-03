@@ -9,7 +9,7 @@
 ##### latent-space(z-space)의 변화에 따라 부드러운 변화 생성 (창문이 점점 생기는 과정 ) </br>
 ![image](https://user-images.githubusercontent.com/98244339/171778557-0bc7c3ba-23f2-4174-b1db-fd7516193b8e.png)
 
-##### latent-space Z-벡터의 산술 표현으로 의미론적 이미지 생성가능 </br>
-[image](https://user-images.githubusercontent.com/98244339/171778764-0b7e11f8-4545-4b92-a647-c3fce8dd3d82.png)
+##### latent-space Z-벡터의 산술 표현으로 의미론적 이미지 생성가능</br>
+![image](https://user-images.githubusercontent.com/98244339/171778764-0b7e11f8-4545-4b92-a647-c3fce8dd3d82.png)
 
 
